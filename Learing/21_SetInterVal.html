@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SetInterval</title>
+  </head>
+  <body>
+    <h1>I am Default Text (Vikas chenna)</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+  </body>
+  <script>
+    //SetInterval means is used to done any work repeatly  after given time period means if we give 2 sec to print someting it will print after every  2 seconds
+
+    const printName = function () {
+        console.log("Vikas chenna", Date.now());
+    };
+    let setInterID;
+    document.getElementById("start").addEventListener("click", function () {
+      setInterID = setInterval(printName, 1000);
+      console.log("started");
+    });
+
+    // if we want to stop the setInterval fun we can use clearInterval
+    document.getElementById("stop").addEventListener("click", function () {
+      clearInterval(setInterID);
+      console.log("stopped");
+    });
+  </script>
+</html>

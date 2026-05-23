@@ -1,0 +1,105 @@
+<!-- in this we will learn DOM
+DOM stands for document object model
+which is used to manipulate html tags
+add,edit,delete
+-->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    h1 {
+    }
+  </style>
+  <body style="background-color: #212121; color: #fff">
+    <h1 id="headingId" class="headingCls">Vikas chenna</h1>
+
+    <ul id="unorder">
+      <li>Javascript</li>
+    </ul>
+
+    <ol class="orderList">
+        <li class="day">Monday</li>
+        <li class="day">Tuesday</li>
+        <li class="day">Wednesday</li>
+        <li class="day">Thursday</li>
+        <li class="day">Friday</li>
+    </ol>
+  </body>
+  <script>
+    ///  1.    // how to get html elements in javascript
+
+
+        const byTagName = document.getElementsByTagName('h1');
+        // byTagName[0].style.backgroundColor = 'gray'
+
+        const byId = document.getElementById('headingId')
+        // byId.style.padding = '10px'
+
+        const byCls = document.getElementsByClassName('headingCls')
+        // byCls[0].style.color = "black"
+
+        const querySele = document.querySelector('.headingCls')
+        // querySele.style.margin = "30px"
+
+        const querySelectAll = document.querySelectorAll('#headingId')
+        // byId.style.backgroundColor = 'orange'
+
+
+    /// 2. how to create and add new Node or element
+        const li = document.createElement('li')
+        li.style.backgroundColor = "green"
+        li.style.padding = '10px'
+        const addText = document.createTextNode("Chai aur Code")
+        const unorder = document.getElementById("unorder")
+        li.appendChild(addText)
+        unorder.appendChild(li)
+        
+        /// create function to add
+        
+        function addElement(langName){
+            const li = document.createElement('li')
+            const addText = document.createTextNode(langName)
+            li.appendChild(addText)
+            const byunorder = document.getElementById("unorder")
+            byunorder.appendChild(li) 
+        }
+
+        addElement("Web development")
+        addElement("Type Script")
+
+    /// getting child elements and parent element
+
+    const orderList = document.querySelector(".orderList")
+    // console.log(orderList);
+    // console.log(orderList.children);
+    // console.log(orderList.children[0].innerHTML);
+    
+    for (let i = 0; i < orderList.children.length; i++) {
+        //console.log(orderList.children[i].innerHTML);
+        
+    }
+
+    const day = document.querySelector(".day")
+    console.log(day);
+    console.log(day.parentElement);
+    console.log(day.nextElementSibling.innerHTML);
+
+    const firstElement = document.querySelector(".day:first-child")
+    firstElement.textContent = "BlockChain"
+    
+    const lasttElement = document.querySelector(".day:last-child")
+    lasttElement.textContent = "Computer Network"
+
+
+    const secondChild = document.querySelector(".day:nth-child(2)")
+    secondChild.textContent = "C++"
+
+
+    
+  </script>
+</html>

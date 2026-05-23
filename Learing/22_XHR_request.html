@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XHR | XMLHTTPRequest</title>
+  </head>
+  <body></body>
+  <script>
+// XHR send and recives the data without reloading the  page
+
+
+    //     1. How XHR Works (The Real-World Analogy)
+    // Think of XMLHttpRequest like ordering food at a restaurant:
+
+    // Create the order: You look at the menu (Create XHR instance).
+    // Prepare the delivery routing: The waiter notes down which kitchen station to go to (open() the connection).
+    // Set up a listener: You tell the waiter, "When the food is ready, bring it to my table" (onreadystatechange).
+    // Send the order: The waiter goes to the kitchen (send()).
+    // Receive the food: The kitchen processes it, and when it changes from "cooking" to "ready", it's delivered to you.
+
+    // 2. The 5 States of XHR (readyState)
+    // Because async operations take time, XHR tracks its progress using numbers from 0 to 4. You will see these numbers heavily tested in technical placement rounds:
+
+    // 0 (UNSENT): Object created, but open() hasn't been called yet.
+    // 1 (OPENED): open() has been called. The connection is set up.
+    // 2 (HEADERS_RECEIVED): send() has been called, and the server headers are back.
+    // 3 (LOADING): Downloading the actual data. Response text has partial data.
+    // 4 (DONE): The operations are completely finished. The data is fully downloaded!
+
+    const requestUrl = "https://api.github.com/users/hiteshchoudhary";
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", requestUrl);
+
+    let followers;
+    let pic;
+    xhr.onreadystatechange = function () {
+      console.log(xhr.readyState);
+      if (xhr.readyState === 4) {
+        const data = JSON.parse(this.responseText);
+        // console.log(typeof data);
+        // console.log(data.followers);
+
+        followers = data.followers;
+        pic = data.avatar_url;
+        console.log(pic);
+        console.log(followers);
+        // console.log(data);
+
+        //create div
+        const div = document.createElement("div");
+        div.style.width = "250px";
+        div.style.height = "250px";
+        div.style.border = "2px solid black";
+        document.body.appendChild(div);
+
+        //for IMG
+
+        const img = document.createElement("img");
+        img.style.width = "150px"
+        img.style.height = "150px"
+        img.style.margin = "10px"
+        img.style.marginLeft = "50px"
+        img.src = `${pic}`
+        
+        div.appendChild(img)
+        
+        // for followers
+        const p = document.createElement("p");
+        p.style.marginLeft = "10px"
+        p.innerHTML = `Hitesh Sir Github Followers ${followers}`;
+        div.appendChild(p);
+      }
+    };
+
+    xhr.send();
+  </script>
+</html>

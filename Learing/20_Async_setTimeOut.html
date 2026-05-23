@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SetTimeOut </title>
+  </head>
+  <body>
+    <h1>I am Default Text (Vikas chenna)</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+  </body>
+  <script>
+
+       //setTimeOut means is used to done any work only once after given time period means if we give 2 sec to print someting it will print only one time after 2 seconds
+       const h1 = document.querySelector("h1")
+    let setTimeID;
+       const changeText = function(){
+               h1.innerHTML = `I am changed Text `
+           }
+
+       document.getElementById("start").addEventListener('click',function(){
+           setTimeID = setTimeout(changeText,2000)
+           console.log("started");
+       })
+
+       // if we want to stop the set timeout fun we can use clearTimeout
+       document.getElementById("stop").addEventListener('click',function(){
+           clearTimeout(setTimeID)
+           console.log("stopped");
+
+       })
+  </script>
+</html>

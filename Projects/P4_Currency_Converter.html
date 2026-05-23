@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Currenct Converter</title>
+  </head>
+  <style>
+    body {
+      background: url("https://images.pexels.com/photos/29769669/pexels-photo-29769669.jpeg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 90vh;
+    }
+    form {
+      border: 1.5px solid #fff;
+      border-radius: 5px;
+      background-color: #0000008f;
+      width: 350px;
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin-bottom: 10px;
+    }
+    label,
+    input {
+      margin: 5px;
+    }
+    .btn {
+      width: 250px;
+      margin-left: 50px;
+      border-radius: 5px;
+      /* border: none; */
+      border: 2px solid #000;
+      background-color: #4443438f;
+      color: white;
+      padding: 10px;
+    }
+    select {
+      margin-left: 18px;
+      width: 200px;
+    }
+    input,select {
+      border: 2px solid #000;
+      background-color: #4443438f;
+      border-radius: 5px;
+      color: white;
+      padding: 5px;
+    }
+  </style>
+  <body>
+    <form>
+        <p>This Values is Converted From INR to select Country</p>
+      <label>
+        Enter Value
+        <input type="number" name="" id="userInput" />
+      </label>
+      <label
+        >Countries
+        <select name="" id="countriesName">
+          <option value="USD">USD (United States)</option>
+          <option value="CAD">CAD (Canada)</option>
+          <option value="MXN">MXN (Mexico)</option>
+          <option value="BRL">BRL (Brazil)</option>
+          <option value="EUR">EUR (Eurozone)</option>
+          <option value="GBP">GBP (United Kingdom)</option>
+          <option value="CHF">CHF (Switzerland)</option>
+          <option value="RUB">RUB (Russia)</option>
+          <option value="JPY">JPY (Japan)</option>
+          <option value="CNY">CNY (China)</option>
+          <option value="AED">AED (United Arab Emirates)</option>
+          <option value="SAR">SAR (Saudi Arabia)</option>
+          <option value="SGD">SGD (Singapore)</option>
+          <option value="KRW">KRW (South Korea)</option>
+          <option value="PKR">PKR (Pakistan)</option>
+          <option value="NPR">NPR (Nepal)</option>
+          <option value="AUD">AUD (Australia)</option>
+          <option value="NZD">NZD (New Zealand)</option>
+          <option value="ZAR">ZAR (South Africa)</option>
+          <option value="EGP">EGP (Egypt)</option>
+        </select>
+      </label>
+      <input type="submit" value="Convert Currency" id="Submit" class="btn" />
+      <input type="reset" value="Reset All Values" class="btn" id="reset" />
+      <p id="result"></p>
+    </form>
+     <script src="/Mastering-MERN/Projects/Currency_Converter.js"></script>
+  </body>
+</html>

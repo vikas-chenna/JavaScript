@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Currently Bill</title>
+  </head>
+  <body>
+    <label for="username">Username</label>
+    <input type="text" name="username" id="username" />
+    <br /><br />
+    <label for="oldMeterValue">Old Meter Value</label>
+    <input type="number" name="oldMeterValue" id="oldMeterValue"/>
+    <br /><br />
+    <label for="newMeterValue">New Meter Value</label>
+    <input type="number" name="newMeterValue" id="newMeterValue" />
+    <br /><br />
+    <label for="perUnit">Per unit</label>
+    <input type="number" readonly value="8" id="perUnit" />
+    <br /><br />
+    <button id="btnresult">Result</button>
+    <button id="btnReset">Reset</button>
+    <p id="printResult"></p>
+  </body>
+  <script>
+    let btnresult = document.getElementById("btnresult");
+    let btnReset = document.getElementById("btnReset");
+
+    btnresult.addEventListener("click", () => {
+      let userName = document.getElementById("username").value;
+      let oldMeterValue = Number(document.getElementById("oldMeterValue").value,);
+      let newMeterValue = Number(document.getElementById("newMeterValue").value,);
+      let printResult = document.getElementById("printResult");
+      const perUnit = Number(document.getElementById("perUnit").value);
+
+      if (oldMeterValue == "" || newMeterValue == "" || userName == "") {
+        alert("please enter All Values");
+      } else if (oldMeterValue <= newMeterValue) {
+        let subtractValue = newMeterValue - oldMeterValue; //because newMeterValue has greater than oldMeterValue
+        let finalValue = subtractValue * perUnit;
+        printResult.innerHTML = "Hii " + userName + " , " + finalValue;
+      } else {
+        alert("Enter correct Values,  old meter values always less than new meter values");
+      }
+    });
+
+    btnReset.addEventListener("click", () => {
+      document.getElementById("username").value = "";
+      document.getElementById("oldMeterValue").value = "";
+      document.getElementById("newMeterValue").value = "";
+      document.getElementById("printResult").innerHTML = "";
+    });
+  </script>
+</html>
