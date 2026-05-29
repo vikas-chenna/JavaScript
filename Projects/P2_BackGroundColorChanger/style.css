@@ -1,0 +1,46 @@
+body {
+  background-color: #212121;
+  color: #fff;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.button {
+  width: 160px;
+  height: 150px;
+  border: 2px solid black;
+  margin: 5px;
+}
+#grey {
+  background-color: grey;
+}
+#purple {
+  background-color: purple;
+}
+#black {
+  background-color: black;
+}
+#red {
+  background-color: red;
+}
+#blue {
+  background-color: blue;
+}
+#orange {
+  background-color: orange;
+}
+#white {
+  background-color: white;
+}
+#pink {
+  background-color: pink;
+}
+#green {
+  background-color: green;
+}
+#yellow {
+  background-color: yellow;
+}
